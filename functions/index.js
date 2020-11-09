@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 });
 
 //Get projects list
-app.get('/projects', (req, res) => {
+app.get('/projects', (req, res) =>  {
     const projectsQuerySnapshot = db.collection('projects').get();
     const projectsList = [];
     projectsQuerySnapshot

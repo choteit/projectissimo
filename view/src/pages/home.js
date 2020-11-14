@@ -98,7 +98,7 @@ class home extends Component {
         } else {
             return (
                 <div className={classes.root}>
-                    <div>
+                    {/* <div>
                         <CssBaseline/>
                         <AppBar position="fixed" className={classes.appBar}>
                             <Toolbar>
@@ -107,7 +107,7 @@ class home extends Component {
                                 </Typography>
                             </Toolbar>
                         </AppBar>
-                    </div>
+                    </div> */}
                     <div>
                         <JumboCard/>
                     </div>

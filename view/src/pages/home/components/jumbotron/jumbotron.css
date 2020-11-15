@@ -1,0 +1,18 @@
+.center-text {
+    text-align: center;
+}
+.light-text {
+    font-weight: lighter;
+}
+.title {
+    font-size: 40px;
+}
+.subtitle {
+    font-size: 20px;
+}
+.transparent > div {
+    background-color: transparent !important;
+}
+.gray-background {
+    background-color: #F8F8F8;
+}

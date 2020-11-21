@@ -29,10 +29,10 @@ export class ExplanationRow extends Component {
                         <p className="center-text light-text title">{this.props.title}</p>
                     </div>
                 </div>
-                <div className="d-flex justify-content-around mx-1 py-1">
-                    <div className="col"><ExplanationIconColumn {...this.shareIdea} /></div>
-                    <div className="col"><ExplanationIconColumn {...this.shapeProject} /></div>
-                    <div className="col"><ExplanationIconColumn {...this.buildTeam} /></div>
+                <div className="row d-flex justify-content-around mx-1 py-1">
+                    <div className="py-sm-2 py-md-0 col-sm-12 col-md-4"><ExplanationIconColumn {...this.shareIdea} /></div>
+                    <div className="py-sm-2 py-md-0 col-sm-12 col-md-4"><ExplanationIconColumn {...this.shapeProject} /></div>
+                    <div className="py-sm-2 py-md-0 col-sm-12 col-md-4"><ExplanationIconColumn {...this.buildTeam} /></div>
                 </div>
             </div>
         );

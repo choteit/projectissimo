@@ -8,6 +8,7 @@ import postIdeaImage from '../../assets/projectoo_landing_page_share_your_idea.p
 import './home.css';
 import Divider from '@material-ui/core/Divider'
 import { ExplanationRow } from './components/explanation-row/explanation-row';
+import { Button, TextField } from '@material-ui/core';
 
 export class Home extends Component {
     explanationRow = {
@@ -71,6 +72,36 @@ export class Home extends Component {
                     <Divider />
                     <LandingPageRow {...this.blogRow} />
                     <Divider />
+
+                    <div className="d-flex justify-content-center">
+                        <div className="d-flex flex-column w-75 py-3">
+                            <p className="center-text light-text title">Any questions?</p>
+                            <p className="center-text light-text">We would be more than happy to answer any questions you may have about Projectoo or on the best ways to buil your projects</p>
+
+                            <TextField
+                                label="Message"
+                                multiline
+                                rows={3}
+                                variant="outlined"
+                            />
+
+                            <div className="d-flex py-3">
+                                <TextField
+                                    className="flex-fill"
+                                    label="Email Address"
+                                    variant="outlined"
+                                />
+                                <TextField
+                                    className="mx-2 flex-fill"
+                                    label="Name"
+                                    variant="outlined"
+                                />
+                                <Button variant="contained" color="primary" className="flex-fill">
+                                    Send
+                            </Button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         );

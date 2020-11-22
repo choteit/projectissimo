@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import axios from 'axios';
 import { JumboCard } from './components/jumbotron/jumbotron';
 import { LandingPageRow } from './components/landing-page-row/landing-page-row';
 import communityImage from '../../assets/projectoo_connect_community.png';
@@ -8,7 +7,8 @@ import postIdeaImage from '../../assets/projectoo_landing_page_share_your_idea.p
 import './home.css';
 import Divider from '@material-ui/core/Divider'
 import { ExplanationRow } from './components/explanation-row/explanation-row';
-import { Button, TextField } from '@material-ui/core';
+import { ContactUsRow } from './contact-us-row/contact-us-row';
+import { BottomNav } from '../shared/bottom-nav';
 
 export class Home extends Component {
     explanationRow = {
@@ -49,60 +49,28 @@ export class Home extends Component {
     }
 
     render() {
+        const jumboBackground = {
+            backgroundColor: '#F8F8F8'
+        };
+
         return (
             <div>
-                {/* <div>
-                        <CssBaseline/>
-                        <AppBar position="fixed" className={classes.appBar}>
-                            <Toolbar>
-                                <Typography variant="h6" noWrap>
-                                    Projectoo
-                                </Typography>
-                            </Toolbar>
-                        </AppBar>
-                    </div> */}
-                <div>
+                <div style={jumboBackground}>
                     <JumboCard />
-                    <Divider />
-                    <ExplanationRow {...this.explanationRow} />
-                    <Divider />
-                    <LandingPageRow {...this.communityRow} />
-                    <Divider />
-                    <LandingPageRow {...this.postIdeaRow} />
-                    <Divider />
-                    <LandingPageRow {...this.blogRow} />
-                    <Divider />
-
-                    <div className="d-flex justify-content-center">
-                        <div className="d-flex flex-column w-75 py-3">
-                            <p className="center-text light-text title">Any questions?</p>
-                            <p className="center-text light-text">We would be more than happy to answer any questions you may have about Projectoo or on the best ways to buil your projects</p>
-
-                            <TextField
-                                label="Message"
-                                multiline
-                                rows={3}
-                                variant="outlined"
-                            />
-
-                            <div className="d-flex py-3">
-                                <TextField
-                                    className="flex-fill"
-                                    label="Email Address"
-                                    variant="outlined"
-                                />
-                                <TextField
-                                    className="mx-2 flex-fill"
-                                    label="Name"
-                                    variant="outlined"
-                                />
-                                <Button variant="contained" color="primary" className="flex-fill">
-                                    Send
-                            </Button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+                
+                <Divider />
+                <ExplanationRow {...this.explanationRow} />
+                <Divider />
+                <LandingPageRow {...this.communityRow} />
+                <Divider />
+                <LandingPageRow {...this.postIdeaRow} />
+                <Divider />
+                <LandingPageRow {...this.blogRow} />
+                <Divider />
+                <ContactUsRow />
+                <Divider />
+                <BottomNav />
             </div>
         );
     }

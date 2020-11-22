@@ -24,12 +24,9 @@ export class ExplanationRow extends Component {
     render() {
         return (
             <div className="my-5">
-                <div className="row">
-                    <div className="col">
-                        <p className="center-text light-text title">{this.props.title}</p>
-                    </div>
-                </div>
-                <div className="row d-flex justify-content-around mx-1 py-1">
+                <p className="center-text light-text title">{this.props.title}</p>
+                    
+                <div className="row d-flex w-75 justify-content-around mx-auto py-1">
                     <div className="py-sm-2 py-md-0 col-sm-12 col-md-4"><ExplanationIconColumn {...this.shareIdea} /></div>
                     <div className="py-sm-2 py-md-0 col-sm-12 col-md-4"><ExplanationIconColumn {...this.shapeProject} /></div>
                     <div className="py-sm-2 py-md-0 col-sm-12 col-md-4"><ExplanationIconColumn {...this.buildTeam} /></div>

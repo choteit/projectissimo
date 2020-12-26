@@ -1,22 +1,19 @@
 const admin = require('firebase-admin');
 const db = admin.firestore();
+const AbstractModel = require ('./AbstractModel');
 
-class Project {
-    constructor(id, title, description, claps, creator) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.claps = claps;
-        this.creator = creator;
+class Project extends AbstractModel {
+    constructor(data, id = null) {
+        super(data,id);
+        this.title = data.title;
+        this.description = data.description;
+        this.claps = data.claps;
+        this.creator = data.creator;
     }
 }
 
 function create(data, callback) {
-    let project = new Project();
-    project.title = data.title;
-    project.description = data.description;
-    project.creator =  data.creator;
-
+    let project = new Project(data);
     const projectQuerySnapshot = db.collection('projects').add({project})
         .then((doc) => {
             callback(doc.id);
@@ -33,7 +30,7 @@ function getList(callback) {
         .then((result) => {
             result.forEach((doc) => {
                 let data = doc.data();
-                let project = new Project(doc.id, data.title, data.description, data.claps,data.creator);
+                let project = new Project(data, doc.id);
                 projectsList.push({project});
                 }
             );
@@ -59,10 +56,7 @@ function like(projectId, callback) {
 }
 
 function update(projectId, data, callback) {
-    let project = new Project();
-    project.title = data.title;
-    project.description = data.description;
-
+    let project = new Project(data);
     const projectRef = db.collection('projects').doc(projectId);
     projectRef.set({project},
         {merge: true}

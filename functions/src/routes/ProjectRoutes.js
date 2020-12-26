@@ -1,57 +1,43 @@
 const router = require('express').Router();
+const Promise = require('promise');
 const ProjectModel = require('../models/ProjectModel');
 
 //Get projects list
 router.get('/', (req, res) =>  {
-    const projectList = ProjectModel.getProjectsList()
-        .then((data) => {
-            return res.status(200).json(data);
-        })
-        .catch((error) => {
-            return res.status(500).json(error);
-        });
+    ProjectModel.getList(function(err,data){
+        if(err){
+           return res.status(500).json(err);
+       }
+       return res.status(200).json(data);
+    });
 });
 
 //Create project
 router.post('/create', (req, res) => {
-    const projectsQuerySnapshot = db.collection('projects').add({
-        title: "Custom project",
-        description: "This is a project added through http"
-
+    ProjectModel.create(req.params, function (err,data) {
+        if(err) {
+            return res.status(500).json(err);
+        }
+        return res.status(200).json(data);
     })
-        .then((doc) => {
-            return res.send('The project has id ' + doc.id);
-        })
-        .catch((error) => {
-            return res.status(500).json(error);
-        })
 });
 
-router.post('/:projectId/like', (req, res) => {
-    const increment = admin.firestore.FieldValue.increment(1);
-    const projectRef = db.collection('projects').doc(req.params.projectId);
-    projectRef.update({
-            claps: increment
+router.get('/like/:projectId', (req, res) => {
+    ProjectModel.like(req.params.projectId,function(err,data){
+        if(err){
+            return res.status(500).json(err);
         }
-    ).then((doc) => {
-            return res.status(200).json(doc);
-        }
-    ).catch((error) => {
-        return res.status(500).json(error);
+        return res.status(200).json(data);
     });
 });
 
-router.put('/:projectId/update', (req,res) => {
-    const projectRef = db.collection('projects').doc(req.params.projectId);
-    projectRef.update({
-            claps: increment
+router.put('/update/:projectId', (req,res) => {
+    ProjectModel.update(req.params.projectId, req.params, function (err, data) {
+        if(err){
+            return res.status(500).json(err);
         }
-    ).then((doc) => {
-            return res.status(200).json(doc);
-        }
-    ).catch((error) => {
-        return res.status(500).json(error);
-    });
+        return res.status(200).json(data);
+    })
 });
 
 module.exports = router;

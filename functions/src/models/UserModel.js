@@ -71,8 +71,8 @@ function update(userId, data, callback) {
     user.interests = data.interests;
     user.picture = data.picture;
 
-    const projectRef = db.collection('projects').doc(req.params.projectId);
-    projectRef.set({project},
+    const projectRef = db.collection('users').doc(userId);
+    projectRef.set({user},
         {merge: true}
     ).then((doc) => {
             callback(doc)

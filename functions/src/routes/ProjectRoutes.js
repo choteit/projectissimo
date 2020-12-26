@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const Promise = require('promise');
 const ProjectModel = require('../models/ProjectModel');
 
 //Get projects list

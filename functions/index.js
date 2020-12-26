@@ -14,6 +14,7 @@ admin.initializeApp();
 const router = require('express').Router();
 
 app.use('/projects', require ('./src/routes/ProjectRoutes'));
+app.use('/users', require ('./src/routes/UserRoutes'));
 
 //Homepage
 app.get('/', (req, res) => {

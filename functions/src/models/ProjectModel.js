@@ -63,7 +63,7 @@ function update(projectId, data, callback) {
     project.title = data.title;
     project.description = data.description;
 
-    const projectRef = db.collection('projects').doc(req.params.projectId);
+    const projectRef = db.collection('projects').doc(projectId);
     projectRef.set({project},
         {merge: true}
     ).then((doc) => {

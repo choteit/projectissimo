@@ -15,6 +15,7 @@ const router = require('express').Router();
 
 app.use('/projects', require ('./src/routes/ProjectRoutes'));
 app.use('/users', require ('./src/routes/UserRoutes'));
+app.use('/comments', require ('./src/routes/CommentRoutes'));
 
 //Homepage
 app.get('/', (req, res) => {

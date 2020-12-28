@@ -1,6 +1,6 @@
 //Abstract model which role is to give a base Model
 //and generic attributes to models inheriting from it
-class Abstract {
+class AbstractModel {
     constructor(props, id = null) {
         if(id){
             this.id = id;
@@ -16,5 +16,5 @@ class Abstract {
 }
 
 module.exports = {
-    Abstract
+    AbstractModel
 };

@@ -24,14 +24,14 @@ export class JumboCard extends Component {
             <div>
                 <TopNav />
 
-                <div className="row w-75 mx-auto align-items-center pb-4">
-                    <div className="col-7 flex-column">
-                        <Typography style={titleStyle} className="my-3" variant="h4">Let your ideas come to life</Typography>
-                        <Typography style={subtitleStyle} variant="subtitle1" color="textSecondary">
+                <div className="d-flex flex-row mx-auto align-items-center pb-4">
+                    <div className="flex-column">
+                        <p style={titleStyle} className="my-3" variant="h4">Let your ideas come to life</p>
+                        <p style={subtitleStyle} variant="subtitle1" color="textSecondary">
                             Projectoo is a collaborative platform where people's ideas become projects.
                             Share your idea with the community, make it better by receiving feedback and turn it into a
                             real project.
-                    </Typography>
+                        </p>
                         <Divider className="my-4" />
                         <div className="d-flex justify-content-around">
                             <div>
@@ -42,8 +42,8 @@ export class JumboCard extends Component {
                             </div>
                         </div>
                     </div>
-                    <div className="col-5 transparent">
-                        <Image src={mainImg} />
+                    <div className="transparent">
+                        <Image aspectRatio={1.1568} style={{width: '400px'}} src={mainImg} />
                     </div>
                 </div>
             </div>
